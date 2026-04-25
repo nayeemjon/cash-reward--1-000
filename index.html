@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RewardZinga - Claim $1,000 CashApp</title>
+    <style>
+        :root { --cashapp-green: #00D64F; --dark-gray: #1a1a1a; }
+        
+        /* ব্যাকগ্রাউন্ডে রেডিয়েন্ট গ্রেডিয়েন্ট */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: radial-gradient(circle at center, #00D64F 0%, #00a33c 40%, #006023 100%); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            perspective: 1000px; /* 3D এফেক্টের জন্য প্রয়োজনীয় */
+            overflow: hidden; /* ব্যাকগ্রাউন্ড এনিমেশন বাইরে যাবে না */
+        }
+
+        /* হালকা ব্যাকগ্রাউন্ড এনিমেশন */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"><circle cx="3" cy="3" r="3"/><circle cx="13" cy="13" r="3"/></g></svg>');
+            animation: move-background 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes move-background {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, -100px); }
+        }
+
+        /* মূল কার্ডের জন্য 3D ট্রানজিশন এবং আধুনিক লুক */
+        .wrapper { 
+            width: 90%; 
+            max-width: 400px; 
+            background: rgba(255, 255, 255, 0.9); /* হালকা কাঁচের মতো এফেক্ট */
+            backdrop-filter: blur(5px);
+            border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+            padding: 30px; 
+            box-sizing: border-box; 
+            text-align: center; 
+            z-index: 1; /* কন্টেন্ট ব্যাকগ্রাউন্ডের উপরে থাকবে */
+            transition: transform 0.5s ease-out, box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* মাউস হভার করলে 3D এফেক্ট */
+        .wrapper:hover {
+            transform: rotateX(5deg) rotateY(3deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .badge { 
+            background: #ff4d4d; 
+            color: white; 
+            padding: 8px 18px; 
+            border-radius: 50px; 
+            font-size: 13px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            animation: pulse 1.5s infinite; 
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); }
+            100% { transform: scale(1); }
+        }
+
+        h1 { font-size: 26px; color: var(--dark-gray); margin-bottom: 10px; font-weight: 800; }
+        h1 span { color: var(--cashapp-green); text-shadow: 1px 1px 1px rgba(0,0,0,0.1); }
+
+        .benefits { text-align: left; margin: 25px 0; }
+        .benefits div { 
+            background: rgba(248, 248, 248, 0.7); 
+            margin-bottom: 10px; 
+            padding: 15px; 
+            border-radius: 12px; 
+            font-size: 15px; 
+            display: flex; 
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .benefits div::before { content: '🎁'; margin-right: 12px; font-size: 1.2em; }
+
+        .cta-button { 
+            display: block; 
+            background: var(--cashapp-green); 
+            color: white; 
+            text-decoration: none; 
+            padding: 18px; 
+            font-size: 22px; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            margin-top: 25px;
+            box-shadow: 0 8px 20px rgba(0,214,79,0.5);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* বাটনে হালকা শাইন এনিমেশন */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            from { transform: translate(-100px, -100px) rotate(45deg); }
+            to { transform: translate(100px, 100px) rotate(45deg); }
+        }
+
+        .cta-button:hover { background: #00b342; transform: translateY(-3px) scale(1.02); }
+
+        .social-proof { margin-top: 30px; font-size: 14px; color: #555; font-style: italic; background: #fff; padding: 15px; border-radius: 12px; }
+        .social-proof span { font-weight: bold; color: var(--cashapp-green); }
+
+        .footer { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 30px; }
+        .footer a { color: #fff; text-decoration: underline; margin: 0 5px; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="badge">🔥 LIMITED SPOTS: 07</div>
+    
+    <h1>Get Your <span>$1,000 CashApp</span></h1>
+    
+    <div class="benefits">
+        <div>100% Free Entry - No Fees</div>
+        <div>Verified CashApp Offer</div>
+        <div>Join Thousands of Users</div>
+    </div>
+
+    <a href="https://www.af9m8trk.com/GQZ11QDD/9PC123FX/" class="cta-button">Claim Your $1,000 Now</a>
+
+    <div class="social-proof">
+        "Just got mine! Simply amazing." - <span>Jessica</span> R.<br>
+        "Thought it was fake, but I was wrong!" - <span>David</span> W.
+    </div>
+
+    <div class="footer">
+        *Affiliation Disclaimer: This offer is not affiliated with CashApp or Square Inc.<br>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+    </div>
+</div>
+
+</body>
+</html>
